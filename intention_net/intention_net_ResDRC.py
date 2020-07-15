@@ -86,7 +86,7 @@ def IntentionNet(mode, input_frame, D, N, num_control, num_intentions=-1, use_si
         resnet = ResNet()
         encoded_img = resnet(rgb_input)
         reshaped_img = Reshape(target_shape=(16, 16, 8))(encoded_img)
-        drcn = DRCN(D, N, filters_list=[32, 32, 64], kernel_size_list=[(3, 3), (3, 3), (3, 3)], padding="same")
+        drcn = DRCN(D, N, filters_list=[32, 32, 64, 64], kernel_size_list=[(3, 3), (3, 3), (3, 3), (3, 3)], padding="same")
         drc_output = drcn(reshaped_img)
         flattened = Flatten()(drc_output)
         output = Dense(2048, kernel_initializer=INITIALIZER, kernel_regularizer=l2(L2), activation="relu")(flattened)

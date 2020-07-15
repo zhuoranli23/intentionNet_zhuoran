@@ -217,15 +217,15 @@ def main(_):
     flags_obj = flags.FLAGS
     ###################################
     # TensorFlow wizardry
-    # config = tf.ConfigProto()
+    config = tf.ConfigProto()
     # Don't pre-allocate memory; allocate as-needed
-    # config.gpu_options.allow_growth = True
+    config.gpu_options.allow_growth = True
     # Only allow a total of half the GPU memory to be allocated
     # config.gpu_options.per_process_gpu_memory_fraction = 0.98
     # select which GPU to use for training
-    # config.gpu_options.visible_device_list = flags_obj.which_gpu #'1', '0,1,2'
+    config.gpu_options.visible_device_list = flags_obj.which_gpu #'1', '0,1,2'
     # Create a session with the above options specified.
-    # K.tensorflow_backend.set_session(tf.Session(config=config))
+    K.tensorflow_backend.set_session(tf.Session(config=config))
     ###################################
 
     # Get validity data settled
@@ -301,7 +301,7 @@ def main(_):
     # We choose max_samples to save time for training (since some dataset is very big).
     # For large dataset, we only sample 200000 samples every epoch
     training_generator = Dataset(flags_obj.data_dir, flags_obj.batch_size, cfg.NUM_INTENTIONS, mode=flags_obj.intention_mode,
-                                 shuffle=False, max_samples=15000, input_frame=flags_obj.input_frame)
+                                 shuffle=False, max_samples=32000, input_frame=flags_obj.input_frame)
     validation_generator = Dataset(flags_obj.val_dir, flags_obj.batch_size, cfg.NUM_INTENTIONS, mode=flags_obj.intention_mode,
                                    shuffle=False, max_samples=1000, input_frame=flags_obj.input_frame)
     # Get optimizer
@@ -317,9 +317,9 @@ def main(_):
 if __name__ == "__main__":
     import tensorflow as tf
 
-    config = tf.ConfigProto()
-    config.gpu_options.allow_growth = True
-    sess = tf.Session(config=config)
+    # config = tf.ConfigProto()
+    # config.gpu_options.allow_growth = True
+    # sess = tf.Session(config=config)
 
     define_intention_net_flags()
     absl_app.run(main)

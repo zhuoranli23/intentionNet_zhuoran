@@ -16,7 +16,7 @@ help_wrap = functools.partial(flags.text_wrap, length=80, indent="",
 absl_app.HelpshortFlag.SHORT_NAME = "h"
 # base flags
 flags.DEFINE_string(
-    name="data_dir", short_name="dd", default="/home/zhuoran/intentionNet_zhuoran/intention_net/data",
+    name="data_dir", short_name="dd", default="/home/davidzhuoran/intentionNet_zhuoran/intention_net/data",
     help=help_wrap("The location of the input data."))
 
 flags.DEFINE_string(
@@ -24,7 +24,7 @@ flags.DEFINE_string(
     help=help_wrap("The location of the validation data."))
 
 flags.DEFINE_string(
-    name="model_dir", short_name="md", default="/home/zhuoran/intentionNet_zhuoran/intention_net/model_saved/ResDRC",
+    name="model_dir", short_name="md", default="/home/davidzhuoran/intentionNet_zhuoran/intention_net/model_saved/ResDRC",
     help=help_wrap("The location of the model checkpoint data."))
 
 flags.DEFINE_string(
@@ -38,7 +38,7 @@ flags.DEFINE_boolean(
     help=help_wrap("Whether to directly evaluted the learned model"))
 
 flags.DEFINE_string(
-    name='resume', short_name='r', default="/home/zhuoran/intentionNet_zhuoran/intention_net/model_saved/ResDRC/NORMAL_DLM_D3_N5_best_mode.h5",
+    name='resume', short_name='r', default=None,
     help=help_wrap("Path to latest checkpoint for resume."))
 
 flags.DEFINE_string(
@@ -101,7 +101,7 @@ flags.DEFINE_integer(
 
 # Model Hyperparameter Search
 flags.DEFINE_integer(
-    name="DRC_depth", short_name="D", default=3,
+    name="DRC_depth", short_name="D", default=4,
     help=help_wrap("The Depth of DRC ConvLSTM structure"))
 
 flags.DEFINE_integer(
