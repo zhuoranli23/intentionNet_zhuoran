@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: intention-net
+Version: 2.0.1
+Summary: Intention Net Package
+Home-page: UNKNOWN
+Author: Gao Wei
+Author-email: qazmichaelgw@gmail.com
+License: UNKNOWN
+Description: # IntentionNet Journal Paper Implementation
+        ### Requirements
+          - Python 3.5 or later
+          - Carla Simulator 0.8.2 or later
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

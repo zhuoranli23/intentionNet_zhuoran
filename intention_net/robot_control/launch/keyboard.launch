@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="keyboard_control" type="keyboard.py" name="turtlebot_keyboard"/>
+</launch>
